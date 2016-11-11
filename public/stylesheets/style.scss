@@ -1,0 +1,173 @@
+$yellow: #ffbf00;
+$pink: #e83f6f;
+$blue: #2274a5;
+$teal: #32936f;
+
+body {
+  background: $teal;
+  // font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding-top: 80px;
+}
+a {
+  color: #00B7FF;
+}
+// transition
+.board, #message, .square, #start-game, #mode-single, #mode-two, .selected{
+  transition: 300ms;
+}
+.title{
+  position: absolute;
+  top: 0;
+  left: 15px;
+  color: white;
+  border-bottom: 3px solid white;
+}
+// Board
+.board{
+  position: relative;
+  height: 450px;
+  width: 450px;
+  border: 5px solid white;
+  border-radius: 5%;
+  padding: 30px;
+  margin: auto;
+  margin-top: 50px;
+  #message{
+    position: absolute;
+    z-index: 1000;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    color: darken($teal, 5%);
+    border-radius: 3%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    // text inside
+    text-align: center;
+    padding-top: 176px;
+    font-size: 4em;
+    &:hover{
+      background: rgba(255, 255, 255, 0.6);
+      color: darken($teal, 15%);      
+    }
+  }
+}
+@media(min-width: 768px){
+  .board{
+    height: 600px;
+    width: 600px;
+  }
+  .untouched{
+    &:hover{
+      margin-left: -3px;
+      margin-top: -3px;
+    }
+  }
+  .square{
+    padding-top: 24px;
+  }
+}
+.square{
+  border-radius: 5%;
+  position: absolute;
+  background: lighten($teal, 40%);
+  display: inline-block;
+  width: 32%;
+  height: 97%;
+  color: white;
+  font-size: 6em;
+  text-align: center;
+}
+.untouched{
+  &:hover{
+    height: 100%;
+    width: 33%;
+    margin-left: -2px;
+    margin-top: -2px;
+    z-index: 1000;
+  }
+}
+.touched{
+  background: darken($teal, 20%);
+}
+// squares
+#sq1, #sq4, #sq7{
+  left: 0;
+}
+#sq2, #sq5, #sq8{
+  left: 33.33%;
+}
+#sq3, #sq6, #sq9{
+  left: 66.66%;
+}
+.row{
+  position: relative;
+  height: 33.333333%;
+}
+
+// Controls
+#controls{
+  height: 50px;
+}
+#start-game, #mode-single, #mode-two{
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  padding: 15px;
+  padding-left: 30px;
+  color: $teal;
+  font-weight: bold;
+}
+#start-game{
+  border-radius: 5px;
+  padding-left: 40px;
+  background: lighten($teal, 10%);
+  color: darken($teal, 20%);
+  width: 160px;
+  &:hover{
+    background: darken($teal, 20%);
+    color: white;
+  }
+  &:focus, &:active{
+    background: $teal;
+    color: white;
+  }
+}
+// MODE (single vs two)
+#mode-single, #mode-two{
+  border-radius: 2px;  
+  width: 140px;
+  background: darken($teal, 20%);
+  &:hover{
+    color: lighten($teal, 20%);
+  }
+  &:focus, &:active{
+    background: $teal;
+    color: white;
+  }
+}
+.mode-checkbox{
+  border-radius: 2px;  
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 15px;
+  border-right: 2px solid #32936f;
+  background: darken($teal, 10%);
+}
+.selected{
+  color: white !important;
+  .mode-checkbox{
+    background: lighten($teal, 10%);
+  }
+}
+// SCORE
+#in-game{
+  height: 50px;
+  display: none;
+  #turn, #score{
+    height: 50px;
+    display: inline-block;
+  }
+}
