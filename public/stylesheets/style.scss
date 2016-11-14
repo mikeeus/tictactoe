@@ -58,9 +58,11 @@ a {
     } 
     .x, .o{
       cursor: pointer;
-      font-size: 1.3em;
+      font-size: 1.5em;
+      padding: 5px;
       &:hover{
         color: darken($teal, 20%);
+        font-size: 1.6em;
       }
       &:active, &:focus{
         color: $teal;
