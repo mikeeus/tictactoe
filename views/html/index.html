@@ -11,51 +11,61 @@
   <link rel="stylesheet" href="/stylesheets/style.css">  
   <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 <body>
-  <div class="title"><h1>TicTacToe</h1></div>
+  <div class="title">TicTacToe</div>
   
   <div class="container-fluid">
     
     <div id="controls">
       <div id="mode-single" class="selected" onclick="changeMode('single-player')">
-        <span class="mode-checkbox"></span>Single Player</div>
+        <span class="mode-checkbox"></span>Single Player
+      </div>
       <div id="mode-two" onclick="changeMode('two-player')">    
-        <span class="mode-checkbox"></span>Two Player</div>      
-      <div id="start-game" onclick="startGame()">Start Game</div>
+        <span class="mode-checkbox"></span>Two Player
+      </div>
     </div> <!-- end #controls -->
 
     <!--TODO: DESIGN THIS IN-GAME DISPLAY-->
     <div id="in-game">
       <div id="score">
-        <div class="player1">
-          <div id="player-one">Player One</div><div id="player-one-score">0</div>
+        <div class="score-box">
+          <div class="player-name" id="player-one">Player One</div>
+          <div class="player-score" id="player-one-score">0</div>
         </div>
-        <div class="player2">
-          <div id="player-two">Player Two</div><div id="player-two-score">0</div>
+        <div class="score-box">
+          <div class="player-name" id="player-two">Player Two</div>
+          <div class="player-score" id="player-two-score">0</div>
         </div>
       </div> <!-- end #score -->
       <div id="turn">
-        Your turn!
+        <span id="turn-name"></span>'s turn!
       </div>
     </div> <!-- end #in-game -->
 
     <div class="board">
-      <div id="message">Start Game</div>
+      <div id="select-sign">
+        <span class="question">
+          Play as <span class="x" onclick="selectSign('X')">X</span> or <span class="o" onclick="this.disabled=true;selectSign('O')">O</span>?
+        </span>
+      </div>
+      <div id="message">
+        <span id="message-text" onclick="startGame()">Start Game</span>
+      </div>
       <div class="row row1">
-        <div class="square untouched" id="sq1" onclick="toggleTouch('sq1')"></div>
-        <div class="square untouched" id="sq2" onclick="toggleTouch('sq2')"></div>
-        <div class="square untouched" id="sq3" onclick="toggleTouch('sq3')"></div>
+        <div class="square untouched" id="sq1" onclick="playerMove('sq1')"></div>
+        <div class="square untouched" id="sq2" onclick="playerMove('sq2')"></div>
+        <div class="square untouched" id="sq3" onclick="playerMove('sq3')"></div>
       </div>
 
       <div class="row row2">
-        <div class="square untouched" id="sq4" onclick="toggleTouch('sq4')"></div>
-        <div class="square untouched" id="sq5" onclick="toggleTouch('sq5')"></div>
-        <div class="square untouched" id="sq6" onclick="toggleTouch('sq6')"></div>
+        <div class="square untouched" id="sq4" onclick="playerMove('sq4')"></div>
+        <div class="square untouched" id="sq5" onclick="playerMove('sq5')"></div>
+        <div class="square untouched" id="sq6" onclick="playerMove('sq6')"></div>
       </div>
 
       <div class="row row3">
-        <div class="square untouched" id="sq7" onclick="toggleTouch('sq7')"></div>
-        <div class="square untouched" id="sq8" onclick="toggleTouch('sq8')"></div>
-        <div class="square untouched" id="sq9" onclick="toggleTouch('sq9')"></div>      
+        <div class="square untouched" id="sq7" onclick="playerMove('sq7')"></div>
+        <div class="square untouched" id="sq8" onclick="playerMove('sq8')"></div>
+        <div class="square untouched" id="sq9" onclick="playerMove('sq9')"></div>      
       </div>      
     </div> <!-- end .board -->
 
